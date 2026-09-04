@@ -1,0 +1,391 @@
+{
+    "template_id" : "bid_phase",
+    "template_name" : "招投标阶段",
+    "sub_process_list":[
+        {
+            "process_id": "bid_sub_enter",
+            "process_name": "分包商准入流程",
+            "condition_note": "投标单位不在名录内则需要准入，在名录内则跳过该流程",
+            "platform": "建工项目管理平台",
+            "depends_on":[],
+            "file_items":[
+                {
+                    "file_name":"准入单位电商截图",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位三证",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位信用评分表",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位业绩表",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"项目推荐理由",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位考察表",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位管理人员名单",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位管理人员证书",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位社保",
+                    "is_variable_count":false,
+                    "required":true
+                }
+            ]
+        },
+        {
+            "process_id":"bid_sub_censor",
+            "process_name":"分包商投标资审流程",
+            "condition_note":"专业分包和劳务分包必须进行，其他合同可不进行",
+            "platform":"建工项目管理平台",
+            "depends_on":["bid_doc_censor"],
+            "file_items":[
+                {
+                    "file_name":"推荐理由",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"准入单位资审表",
+                    "is_variable_count":true,
+                    "required":false
+                },
+                {
+                    "file_name":"准入单位考察表",
+                    "is_variable_count":true,
+                    "required":false
+                },
+                {
+                    "file_name":"投标单位三证",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位电商截图",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位信用评分表",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位业绩表",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位管理人员名单",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位管理人员证书",
+                    "is_variable_count":true,
+                    "required":true
+                },
+                {
+                    "file_name":"投标单位社保",
+                    "is_variable_count":true,
+                    "required":true
+                }
+            ]
+        },
+        {
+            "process_id":"bid_doc_censor",
+            "process_name":"分包招标文件审批流程",
+            "condition_note":"专业分包和劳务分包必须进行，其他合同可不进行",
+            "platform":"建工项目管理平台",
+            "depends_on":["bid_sub_censor"],
+            "file_items":[
+                {
+                    "file_name":"拆分截图",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"拟分包合同",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"房不抵债情况说明",
+                    "is_variable_count":false,
+                    "required":false
+                },
+                {
+                    "file_name":"投标资审表",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"招标清单",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"招标文件",
+                    "is_variable_count":false,
+                    "required":true
+                },
+                {
+                    "file_name":"招标文件扫描件",
+                    "is_variable_count":false,
+                    "required":true,
+                    "remark": "流程最后一步上传"
+                }
+            ]
+        },
+        {
+            "process_id": "bid_win_approve",
+            "process_name": "中标单位审批流程",
+            "condition_note": "流程必须进行",
+            "platform": "建工项目管理平台",
+            "depends_on": ["bid_doc_censor"],
+            "file_items": [
+                {
+                    "file_name": "电商报价截图",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "电商中标公示截图",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "分包投标比价汇总表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "会议纪要",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "开标记录",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "投标单位投标文件扫描件",
+                    "is_variable_count": true,
+                    "required": true,
+                    "remark": "份数等于投标单位数量"
+                },
+                {
+                    "file_name": "中标通知书（未盖章）",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "基价表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "比价汇总表明细",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "分包招标文件审批表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "中标通知书扫描件",
+                    "is_variable_count": false,
+                    "required": true,
+                    "remark": "流程最后一步上传"
+                }
+            ]
+        },
+        {
+            "process_id": "sub_ec_bid",
+            "process_name": "分包电商投标流程",
+            "condition_note": "专业分包和劳务分包必须进行，其他合同可不进行；该流程可与中标单位审批流程同步进行",
+            "platform": "建工电商平台",
+            "depends_on": [],
+            "file_items": [
+                {
+                    "file_name": "投标文件",
+                    "is_variable_count": true,
+                    "required": true,
+                    "remark": "份数等于投标单位数量，仅包含承诺书与投标清单"
+                },
+                {
+                    "file_name": "中标通知书扫描件",
+                    "is_variable_count": false,
+                    "required": true,
+                    "remark": "中标单位审批流程结束后上传"
+                }
+            ]
+        },
+        {
+            "process_id": "pro_sub_contract_book",
+            "process_name": "专业分包合同台账",
+            "condition_note": "专业分包必须进行",
+            "platform": "建工项目管理平台",
+            "depends_on": ["bid_win_approve"],
+            "file_items": [
+                {
+                    "file_name": "电商中标通知书界面截图",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "房不抵债情况说明",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "基价表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "拟专业分包合同.docx",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "拟专业分包合同.pdf",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "合同清单",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "承诺书",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "中标单位审批表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "分包投标比价汇总表",
+                    "is_variable_count": false,
+                    "required": true,
+                    "remark": "中标单位审批流程中生成文件"
+                },
+                {
+                    "file_name": "专业分包合同扫描件.pdf",
+                    "is_variable_count": false,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "process_id": "lab_sub_contract_book",
+            "process_name": "劳务分包合同台账",
+            "condition_note": "劳务分包必须进行",
+            "platform": "建工项目管理平台",
+            "depends_on": ["bid_win_approve"],
+            "file_items": [
+                {
+                    "file_name": "电商中标通知书界面截图",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "房不抵债情况说明",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "拟劳务分包合同.docx",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "拟劳务分包合同.pdf",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "合同清单",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "承诺书",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "收支对比表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "中标单位审批表",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "分包投标比价汇总表",
+                    "is_variable_count": false,
+                    "required": true,
+                    "remark": "中标单位审批流程中生成文件"
+                },
+                {
+                    "file_name": "劳务分包合同扫描件.pdf",
+                    "is_variable_count": false,
+                    "required": true
+                }
+            ]
+        },
+        {
+            "process_id": "contract_record",
+            "process_name": "合同备案",
+            "condition_note": "临时设施无需备案，其他专业、劳务合同必须进行备案",
+            "platform": "建工项目管理平台、上海市住建委网站",
+            "depends_on": ["pro_sub_contract_book","lab_sub_contract_book"],
+            "file_items": [
+                {
+                    "file_name": "合同扫描件",
+                    "is_variable_count": false,
+                    "required": true
+                },
+                {
+                    "file_name": "合同备案审批表",
+                    "is_variable_count": false,
+                    "required": true
+                }
+            ]
+        }
+    ]
+}
+        
